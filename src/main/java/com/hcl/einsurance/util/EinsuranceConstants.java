@@ -5,7 +5,6 @@ public class EinsuranceConstants {
 	public EinsuranceConstants() {
 
 	}
-	// public static final String DETAILS_NOT_FOUND = "Please enter all the
-	// details";
+	 public static final String POLICY_DETAILS_NOT_FOUND = "No Policy Details Found";
 
 }
