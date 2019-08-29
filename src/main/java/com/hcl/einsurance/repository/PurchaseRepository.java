@@ -12,7 +12,7 @@ import com.hcl.einsurance.entity.Purchase;
 @Repository
 public interface PurchaseRepository extends JpaRepository<Purchase, Integer> {
 
-	@Query("select New com.hcl.einsurance.dto.TrendingResponseDto (p.policyId,l.policyName, count(p.policyId) as count) from Purchase p,Policies l where p.status='P' and p.policyId=l.policyId group by p.policyId")
+	@Query("select New com.hcl.einsurance.dto.TrendingResponseDto (p.policyId,l.policyName, count(p.policyId) as count) from Purchase p,Policies l where p.status='P' and p.policyId=l.policyId group by p.policyId order by count(*) desc")
 	List<TrendingResponseDto> getAllTrendings();
 
 }

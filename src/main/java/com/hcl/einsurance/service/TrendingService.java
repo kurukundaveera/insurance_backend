@@ -2,10 +2,10 @@ package com.hcl.einsurance.service;
 
 import java.util.List;
 
-import com.hcl.einsurance.dto.TrendingResponseDto;
+import com.hcl.einsurance.dto.TrendResponseDto;
 
 public interface TrendingService {
 
-	List<TrendingResponseDto> getAllTrendingPolicies();
+	List<TrendResponseDto> getAllTrendingPolicies();
 
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hcl.einsurance.dto.TrendingResponseDto;
+import com.hcl.einsurance.dto.TrendResponseDto;
 import com.hcl.einsurance.service.TrendingService;
 
 /**
@@ -35,9 +35,9 @@ public class TrendingController {
 	 */
 
 	@GetMapping("/trending")
-	public ResponseEntity<List<TrendingResponseDto>> getAllTrendingPolicies() {
+	public ResponseEntity<List<TrendResponseDto>> getAllTrendingPolicies() {
 		logger.info("trending policies");
-		List<TrendingResponseDto> response = trendingService.getAllTrendingPolicies();
+		List<TrendResponseDto> response = trendingService.getAllTrendingPolicies();
 		return new ResponseEntity<>(response, HttpStatus.OK);
 
 	}

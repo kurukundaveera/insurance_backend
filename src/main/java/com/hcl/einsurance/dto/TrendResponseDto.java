@@ -16,9 +16,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class TrendingResponseDto implements Serializable {
+public class TrendResponseDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer policyId;
 	private String policyName;
 	private Long count;
+	private Double percentage;
+
 }
