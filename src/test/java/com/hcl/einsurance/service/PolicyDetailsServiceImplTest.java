@@ -140,12 +140,4 @@ public class PolicyDetailsServiceImplTest {
 		assertEquals(policyDetailsResponseDto.getPolicyTermCondition().getDescription(), response.get(0).getPolicyTermCondition().getDescription());
 	}
 	
-	@Test
-	public void testGetPolicyDetails_1()
-	{
-		Mockito.when(policyRepository.findByPolicyId(Mockito.anyInt())).thenReturn(listPolicies);
-		Mockito.when(policyTermConditionRepository.findById(Mockito.anyInt())).thenReturn(Optional.of(policyTermCondition));
-		Mockito.when(salientFeaturesRepository.findById(Mockito.anyInt())).thenReturn(Optional.of(salientFeatures));
-		policyDetailsServiceImpl.getPolicyDetails(1);
-	}
 }
