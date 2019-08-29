@@ -23,7 +23,6 @@ public class BuyController {
 
 	@Autowired
 	BuyService buyService;
-
 	@PostMapping("/buy")
 	public ResponseEntity<BuyResponseDto> buyPolicy(@RequestBody BuyRequestDto buyRequestDto) {
 		logger.info("Buy policy  controller");

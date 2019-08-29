@@ -50,6 +50,5 @@ private static final Logger logger = LoggerFactory.getLogger(PolicyServiceImpl.c
 				responseList.add(response);
 			});
 		}
-		
 		return responseList;
  }}
