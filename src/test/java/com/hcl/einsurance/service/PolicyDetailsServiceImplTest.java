@@ -20,6 +20,7 @@ import com.hcl.einsurance.dto.SalientFeaturesDto;
 import com.hcl.einsurance.entity.Policies;
 import com.hcl.einsurance.entity.PolicyTermCondition;
 import com.hcl.einsurance.entity.SalientFeatures;
+import com.hcl.einsurance.exception.CommonException;
 import com.hcl.einsurance.repository.PolicyRepository;
 import com.hcl.einsurance.repository.PolicyTermConditionRepository;
 import com.hcl.einsurance.repository.SalientFeaturesRepository;
@@ -140,12 +141,19 @@ public class PolicyDetailsServiceImplTest {
 		assertEquals(policyDetailsResponseDto.getPolicyTermCondition().getDescription(), response.get(0).getPolicyTermCondition().getDescription());
 	}
 	
-	@Test
+	@Test(expected = CommonException.class)
 	public void testGetPolicyDetails_1()
 	{
 		Mockito.when(policyRepository.findByPolicyId(Mockito.anyInt())).thenReturn(listPolicies);
+		 policyDetailsServiceImpl.getPolicyDetails(1);
+	}
+	
+	
+	@Test(expected = CommonException.class)
+	public void testGetPolicyDetails_2()
+	{
+		Mockito.when(policyRepository.findByPolicyId(Mockito.anyInt())).thenReturn(listPolicies);
 		Mockito.when(policyTermConditionRepository.findById(Mockito.anyInt())).thenReturn(Optional.of(policyTermCondition));
-		Mockito.when(salientFeaturesRepository.findById(Mockito.anyInt())).thenReturn(Optional.of(salientFeatures));
-		policyDetailsServiceImpl.getPolicyDetails(1);
+		 policyDetailsServiceImpl.getPolicyDetails(2);
 	}
 }

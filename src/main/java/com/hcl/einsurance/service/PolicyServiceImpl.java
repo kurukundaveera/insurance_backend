@@ -38,6 +38,7 @@ private static final Logger logger = LoggerFactory.getLogger(PolicyServiceImpl.c
 	public List<PolicyResponseDto> getPolicyDetails(String type) {
 	 logger.info("in getPolicy method");
 		List<PolicyResponseDto> responseList = new ArrayList<>();
+		List<PolicyResponseDto> responseList1 ;
 		List<Policies> policyList;
 		if(type.isEmpty()) {
 			throw new CommonException(EinsuranceConstants.POLICY_DETAILS_NOT_FOUND);
@@ -50,5 +51,21 @@ private static final Logger logger = LoggerFactory.getLogger(PolicyServiceImpl.c
 				responseList.add(response);
 			});
 		}
+<<<<<<< HEAD
+=======
+		else if(type.equalsIgnoreCase("suggestions")){
+			responseList1 = policyRepository.getAllSuggestingPolicies();
+			if (responseList1.isEmpty()) {
+				throw new CommonException(EinsuranceConstants.POLICY_DETAILS_NOT_FOUND);
+			} else {
+				responseList1.stream().forEach(t -> {
+					PolicyResponseDto response = new PolicyResponseDto();
+					BeanUtils.copyProperties(t, response);
+					responseList.add(response);
+				});
+			}
+		}
+		
+>>>>>>> 45c4206542bade77851ddc438f07e89b4a88f9a4
 		return responseList;
  }}
