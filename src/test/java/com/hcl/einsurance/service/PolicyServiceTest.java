@@ -39,16 +39,13 @@ public class PolicyServiceTest {
 		policies.setPolicySumAssured(12323);
 		policies.setPolicyTerm("something");
 		policyList.add(policies);
-		
 		policyResponseDto = new PolicyResponseDto();
 		policyResponseDto.setPolicyId(1);
 		policyResponseDto.setPolicyMaxAge(89);
 		policyResponseDto.setPolicyMinAge(18);
 		policyResponseDto.setPolicyName("E LIC Form");
 		policyResponseDto.setPolicyPrice(23D);
-		
 		responseList.add(policyResponseDto);
-		
 	}
 @Test
 public void getPolicyDetailsTest() {

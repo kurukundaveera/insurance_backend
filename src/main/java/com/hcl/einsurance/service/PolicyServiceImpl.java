@@ -14,10 +14,26 @@ import com.hcl.einsurance.exception.CommonException;
 import com.hcl.einsurance.repository.PolicyRepository;
 import com.hcl.einsurance.util.EinsuranceConstants;
 
+/**
+ * 
+ * @author Venkat Reddy
+ *
+ */
 @Service
 public class PolicyServiceImpl implements PolicyService{
 @Autowired PolicyRepository policyRepository;
 private static final Logger logger = LoggerFactory.getLogger(PolicyServiceImpl.class);
+
+/**
+ * 
+ * This method is used for fetch the list of policies
+ * 
+ * @param String is the request object which contains
+ *                      input request type to fetch the details.
+ * @return it returns PolicyResponseDto object it contains policyId, policyName, policyMinAge,policyMaxAge,policyPrice
+ * 
+ */
+
  @Override
 	public List<PolicyResponseDto> getPolicyDetails(String type) {
 	 logger.info("in getPolicy method");
@@ -34,5 +50,6 @@ private static final Logger logger = LoggerFactory.getLogger(PolicyServiceImpl.c
 				responseList.add(response);
 			});
 		}
+		
 		return responseList;
  }}
