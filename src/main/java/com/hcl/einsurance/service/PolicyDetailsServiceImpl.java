@@ -58,6 +58,8 @@ public class PolicyDetailsServiceImpl implements PolicyDetailsService{
 			throw new CommonException(EinsuranceConstants.POLICY_NOT_FOUND);
 		if(!policyTerm.isPresent())
 			throw new CommonException(EinsuranceConstants.POLICY_TERM_CONDITION_NOT_FOUND);
+		if(!salientFeatures.isPresent())
+			throw new CommonException(EinsuranceConstants.SALIENT_FEATURES_NOT_FOUND);
 		policy.stream().forEach(p->
 		{
 			PolicyDetailsResponseDto policyResponse = new PolicyDetailsResponseDto();

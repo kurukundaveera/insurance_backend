@@ -38,7 +38,7 @@ public class PolicyDetailsController {
 	 *         PolicyTermConditionDto and SalientFeaturesDto with status code.
 	 *
 	 */
-	@GetMapping("/policies/{policyId}")
+	@GetMapping("/policy/{policyId}")
 	public ResponseEntity<List<PolicyDetailsResponseDto>> getPolicyDetails(@PathVariable Integer policyId) {
 		logger.info("in getPolicyDetails()");
 		List<PolicyDetailsResponseDto> response = policyDeatilsServiceImpl.getPolicyDetails(policyId);
