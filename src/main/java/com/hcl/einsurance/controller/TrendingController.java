@@ -42,4 +42,11 @@ public class TrendingController {
 
 	}
 
+	@GetMapping("/topTrending")
+	public ResponseEntity<List<TrendResponseDto>> getTopTrendingPolicies() {
+		logger.info("top trending policies");
+		List<TrendResponseDto> response = trendingService.getTopTrendingPolicies();
+		return new ResponseEntity<>(response, HttpStatus.OK);
+
+	}
 }
