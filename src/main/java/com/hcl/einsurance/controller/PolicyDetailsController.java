@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hcl.einsurance.dto.PolicyDetailsResponseDto;
 import com.hcl.einsurance.service.PolicyDetailsServiceImpl;
 
+import io.swagger.annotations.ApiOperation;
+
 /**
  * @author Gurpreet Singh.
  *  This is the controller class for Policy Details by
@@ -38,6 +40,7 @@ public class PolicyDetailsController {
 	 *         PolicyTermConditionDto and SalientFeaturesDto with status code.
 	 *
 	 */
+	@ApiOperation(value = "It gives the details of particular policy")
 	@GetMapping("/policy/{policyId}")
 	public ResponseEntity<List<PolicyDetailsResponseDto>> getPolicyDetails(@PathVariable Integer policyId) {
 		logger.info("in getPolicyDetails()");

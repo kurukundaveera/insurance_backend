@@ -16,6 +16,8 @@ import com.hcl.einsurance.dto.TrendResponseDto;
 import com.hcl.einsurance.service.TopTrendingService;
 import com.hcl.einsurance.service.TrendingService;
 
+import io.swagger.annotations.ApiOperation;
+
 /**
  * @author DeepikaSivarajan
  *
@@ -35,7 +37,7 @@ public class TrendingController {
 	 * @return TrendingResponseDto which includes
 	 *         policyId,policyName,count,percentage
 	 */
-
+	@ApiOperation(value = "It gives the trending policies who are purchased mostly")
 	@GetMapping("/trending")
 	public ResponseEntity<List<TrendResponseDto>> getAllTrendingPolicies() {
 		logger.info("trending policies");
@@ -44,6 +46,7 @@ public class TrendingController {
 
 	}
 
+	@ApiOperation(value = "It gives the top 10 trending policies who are purchased mostly")
 	@GetMapping("/topTrending")
 	public ResponseEntity<List<TrendResponseDto>> getTopTrendingPolicies() {
 		logger.info("top trending policies");

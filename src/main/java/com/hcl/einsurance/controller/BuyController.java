@@ -15,6 +15,8 @@ import com.hcl.einsurance.dto.BuyRequestDto;
 import com.hcl.einsurance.dto.BuyResponseDto;
 import com.hcl.einsurance.service.BuyService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @CrossOrigin(allowedHeaders = { "*", "*/" }, origins = { "*", "*/" })
 @RequestMapping("/api")
@@ -24,6 +26,7 @@ public class BuyController {
 	@Autowired
 	BuyService buyService;
 	@PostMapping("/buy")
+	@ApiOperation(value = "Buyiny the policy")
 	public ResponseEntity<BuyResponseDto> buyPolicy(@RequestBody BuyRequestDto buyRequestDto) {
 		logger.info("Buy policy  controller");
 		return new ResponseEntity<>(buyService.buyPolicy(buyRequestDto), HttpStatus.CREATED);

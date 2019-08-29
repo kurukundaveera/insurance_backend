@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hcl.einsurance.dto.PolicyResponseDto;
 import com.hcl.einsurance.service.PolicyService;
 
+import io.swagger.annotations.ApiOperation;
+
 /**
  * 
  * @author Venkat Reddy
@@ -28,6 +30,7 @@ public class PolicyController {
 	private static final Logger logger = LoggerFactory.getLogger(PolicyController.class);
 	@Autowired 
 	PolicyService policyService;
+	@ApiOperation(value = "It displays the list of policies")
 	@GetMapping("/policies/{type}")
 	public ResponseEntity<List<PolicyResponseDto>> getAllPolicyDetails(@PathVariable String type){
 		logger.info("inside getAllPolicyDetails method..");
