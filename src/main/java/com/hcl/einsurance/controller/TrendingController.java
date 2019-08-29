@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hcl.einsurance.dto.TrendResponseDto;
+import com.hcl.einsurance.service.TopTrendingService;
 import com.hcl.einsurance.service.TrendingService;
 
 /**
@@ -26,7 +27,8 @@ public class TrendingController {
 	private static final Logger logger = LoggerFactory.getLogger(TrendingController.class);
 	@Autowired
 	TrendingService trendingService;
-
+	@Autowired
+	TopTrendingService topTrendingService;
 	/**
 	 * This method is intended to list trending policies based on the count
 	 * 
@@ -45,7 +47,7 @@ public class TrendingController {
 	@GetMapping("/topTrending")
 	public ResponseEntity<List<TrendResponseDto>> getTopTrendingPolicies() {
 		logger.info("top trending policies");
-		List<TrendResponseDto> response = trendingService.getTopTrendingPolicies();
+		List<TrendResponseDto> response = topTrendingService.getTopTrendingPolicies();
 		return new ResponseEntity<>(response, HttpStatus.OK);
 
 	}

@@ -4,9 +4,8 @@ import java.util.List;
 
 import com.hcl.einsurance.dto.TrendResponseDto;
 
-public interface TrendingService {
+public interface TopTrendingService {
 
-	List<TrendResponseDto> getAllTrendingPolicies();
-
+	List<TrendResponseDto> getTopTrendingPolicies();
 
 }

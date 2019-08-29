@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.hcl.einsurance.dto.TrendResponseDto;
@@ -20,13 +22,13 @@ import com.hcl.einsurance.util.EinsuranceConstants;
  *
  */
 @Service
-public class TrendingServiceImpl implements TrendingService {
-	private static final Logger logger = LoggerFactory.getLogger(TrendingServiceImpl.class);
+public class TopTrendingServiceImpl implements TopTrendingService {
+	private static final Logger logger = LoggerFactory.getLogger(TopTrendingServiceImpl.class);
 	@Autowired
 	PurchaseRepository purchaseRepository;
 
 	/**
-	 * This method is intended to list trending policies based on the count
+	 * This method is intended to list top 10 trending policies based on the count
 	 * 
 	 * @exception TRENDINGS_NOT_FOUND if no trending found
 	 * @return TrendingResponseDto which includes
@@ -34,10 +36,11 @@ public class TrendingServiceImpl implements TrendingService {
 	 */
 
 	@Override
-	public List<TrendResponseDto> getAllTrendingPolicies() {
-		logger.info("trending policies in service");
+	public List<TrendResponseDto> getTopTrendingPolicies() {
+		logger.info("top 10 trending policies in service");
 		List<TrendResponseDto> responseList = new ArrayList<>();
-		List<TrendingResponseDto> trendingList = purchaseRepository.getAllTrendings();
+		Pageable pageable = PageRequest.of(0, 10);
+		List<TrendingResponseDto> trendingList = purchaseRepository.getTopTrendings(pageable);
 		if (trendingList.isEmpty()) {
 			throw new CommonException(EinsuranceConstants.TRENDINGS_NOT_FOUND);
 		} else {
@@ -51,6 +54,5 @@ public class TrendingServiceImpl implements TrendingService {
 		}
 		return responseList;
 	}
-
 
 }

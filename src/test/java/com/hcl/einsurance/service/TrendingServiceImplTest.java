@@ -28,6 +28,8 @@ public class TrendingServiceImplTest {
 	PurchaseRepository purchaseRepository;
 	@InjectMocks
 	TrendingServiceImpl trendingServiceImpl;
+	@InjectMocks
+	TopTrendingServiceImpl topTrendingServiceImpl;
 	List<TrendingResponseDto> trendingList;
 	TrendingResponseDto trendingResponseDto;
 	List<TrendResponseDto> responseList;
@@ -59,4 +61,18 @@ public class TrendingServiceImplTest {
 	public void testGetAllTrendingPolicies_1() {
 		trendingServiceImpl.getAllTrendingPolicies();
 	}
+
+	@Test
+	public void testGetTopTrendingPolicies() {
+		Mockito.when(purchaseRepository.getTopTrendings(Mockito.any())).thenReturn(trendingList);
+		List<TrendResponseDto> response = topTrendingServiceImpl.getTopTrendingPolicies();
+		Assert.assertEquals(trendingList.get(0).getPolicyId(), response.get(0).getPolicyId());
+	}
+	@Test(expected = CommonException.class)
+	public void testGetTopTrendingPolicies_1() {
+		topTrendingServiceImpl.getTopTrendingPolicies();
+
+	}
+
+	
 }

@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.hcl.einsurance.service.TopTrendingService;
 import com.hcl.einsurance.service.TrendingService;
 
 /**
@@ -30,6 +31,8 @@ public class TrendingControllerTest {
 	TrendingController trendingController;
 	@Autowired
 	MockMvc mockMvc;
+	@Mock
+	TopTrendingService topTrendingService;
 
 	@Before
 	public void setUp() {
@@ -39,6 +42,13 @@ public class TrendingControllerTest {
 	@Test
 	public void testGetAllTrendingPolicies() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders.get("/api/trending").contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+
+	}
+
+	@Test
+	public void testGetTopTrendingPolicies() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.get("/api/topTrending").contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 
 	}
