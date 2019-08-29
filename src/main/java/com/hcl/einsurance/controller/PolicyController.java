@@ -16,6 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hcl.einsurance.dto.PolicyResponseDto;
 import com.hcl.einsurance.service.PolicyService;
 
+/**
+ * 
+ * @author Venkat Reddy
+ *
+ */
 @RestController
 @CrossOrigin(allowedHeaders = { "*", "*/" }, origins = { "*", "*/" })
 @RequestMapping("/api")

@@ -13,12 +13,11 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(new ErrorResponse(HttpStatus.NOT_FOUND.value(), e.getMessage()),
 				HttpStatus.NOT_FOUND);
 	}
-	
+
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<ErrorResponse> handleAllExceptions(Exception e) {
 		return new ResponseEntity<>(new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), e.getMessage()),
 				HttpStatus.INTERNAL_SERVER_ERROR);
 	}
-
 
 }
