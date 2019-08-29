@@ -23,14 +23,16 @@ private static final Logger logger = LoggerFactory.getLogger(PolicyServiceImpl.c
 	 logger.info("in getPolicy method");
 		List<PolicyResponseDto> responseList = new ArrayList<>();
 		List<Policies> policyList;
-		if(type.equalsIgnoreCase("all")) {
+		if(type.isEmpty()) {
+			throw new CommonException(EinsuranceConstants.POLICY_DETAILS_NOT_FOUND);
+		}
+		else if(type.equalsIgnoreCase("all")){
 			policyList = policyRepository.findAll();
 			policyList.stream().forEach(c -> {
 				PolicyResponseDto response = new PolicyResponseDto();
 				BeanUtils.copyProperties(c, response);
 				responseList.add(response);
 			});
-		}else throw new CommonException(EinsuranceConstants.POLICY_DETAILS_NOT_FOUND);
-		
+		}
 		return responseList;
  }}
