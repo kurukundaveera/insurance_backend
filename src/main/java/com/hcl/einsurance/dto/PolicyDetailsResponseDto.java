@@ -7,16 +7,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Setter
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PolicyResponseDto implements Serializable{
+public class PolicyDetailsResponseDto implements Serializable{/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
+	
+	private PolicyTermConditionDto policyTermCondition;
+	private SalientFeaturesDto salientFeatures;
 
-	private Integer policyId;
-	private String policyName;
-	private Integer policyMinAge;
-	private Integer policyMaxAge;
-	private Double policyPrice;
 }
