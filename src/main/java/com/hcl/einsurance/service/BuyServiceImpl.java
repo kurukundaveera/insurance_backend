@@ -131,4 +131,5 @@ public class BuyServiceImpl implements BuyService {
 		return Period.between(birthDate, nowDate).getYears();
 	}
 
+
 }
