@@ -51,8 +51,6 @@ private static final Logger logger = LoggerFactory.getLogger(PolicyServiceImpl.c
 				responseList.add(response);
 			});
 		}
-<<<<<<< HEAD
-=======
 		else if(type.equalsIgnoreCase("suggestions")){
 			responseList1 = policyRepository.getAllSuggestingPolicies();
 			if (responseList1.isEmpty()) {
@@ -66,6 +64,5 @@ private static final Logger logger = LoggerFactory.getLogger(PolicyServiceImpl.c
 			}
 		}
 		
->>>>>>> 45c4206542bade77851ddc438f07e89b4a88f9a4
 		return responseList;
  }}
