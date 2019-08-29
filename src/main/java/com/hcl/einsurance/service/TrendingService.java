@@ -8,4 +8,6 @@ public interface TrendingService {
 
 	List<TrendResponseDto> getAllTrendingPolicies();
 
+	List<TrendResponseDto> getTopTrendingPolicies();
+
 }
