@@ -16,6 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hcl.einsurance.dto.PolicyResponseDto;
 import com.hcl.einsurance.service.PolicyService;
 
+/**
+ * 
+ * @author Venkat Reddy
+ *
+ */
 @RestController
 @CrossOrigin(allowedHeaders = { "*", "*/" }, origins = { "*", "*/" })
 @RequestMapping("/api")
@@ -23,10 +28,10 @@ public class PolicyController {
 	private static final Logger logger = LoggerFactory.getLogger(PolicyController.class);
 	@Autowired 
 	PolicyService policyService;
-	@GetMapping("/analysys/{all}")
-	public ResponseEntity<List<PolicyResponseDto>> getAllPolicyDetails(@PathVariable String all){
+	@GetMapping("/policies/{type}")
+	public ResponseEntity<List<PolicyResponseDto>> getAllPolicyDetails(@PathVariable String type){
 		logger.info("inside getAllPolicyDetails method..");
-		List<PolicyResponseDto> policyList = policyService.getPolicyDetails(all);
+		List<PolicyResponseDto> policyList = policyService.getPolicyDetails(type);
 		return new ResponseEntity<>(policyList, HttpStatus.OK);
 		
 	}

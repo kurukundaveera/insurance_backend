@@ -14,4 +14,10 @@ public class GlobalExceptionHandler {
 				HttpStatus.NOT_FOUND);
 	}
 
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<ErrorResponse> handleAllExceptions(Exception e) {
+		return new ResponseEntity<>(new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), e.getMessage()),
+				HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+
 }
